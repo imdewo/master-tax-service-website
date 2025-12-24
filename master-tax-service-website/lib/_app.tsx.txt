@@ -1,0 +1,18 @@
+
+export const translations = {
+  en: { title: "Master Tax Service", book: "Book Appointment" },
+
+  om: { title: "Master Tax Service", book: "Beellama Qabadhaa" },
+
+  am: { title: "ማስተር ታክስ ሰርቪስ", book: "ቀጠሮ ይያዙ" },
+
+  ti: { title: "ማስተር ታክስ ሰርቪስ", book: "ቆጸራ ሓዝ" },
+
+  es: { title: "Servicio Maestro de Impuestos", book: "Reservar Cita" },
+
+  ar: { title: "ماستر للخدمات الضريبية", book: "احجز موعدًا", dir: "rtl" },
+
+  ur: { title: "ماسٹر ٹیکس سروس", book: "اپائنٹمنٹ بک کریں", dir: "rtl" },
+
+  sw: { title: "Huduma ya Kodi ya Master", book: "Panga Miadi" },
+};

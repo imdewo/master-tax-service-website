@@ -1,0 +1,39 @@
+
+master-tax-service-website/
+├─ pages/
+│  ├─ _app.tsx
+│  ├─ _document.tsx
+│  ├─ index.tsx
+│  ├─ privacy.tsx
+│  └─ api/
+│     ├─ upload.ts
+│     ├─ payments.ts
+│     └─ esign.ts
+├─ components/
+│  ├─ Hero3D.tsx
+│  ├─ LanguageProvider.tsx
+│  ├─ LanguageSwitcher.tsx
+│  ├─ OfficeHours.tsx
+│  ├─ ContactInfo.tsx
+│  ├─ AppointmentBooking.tsx
+│  ├─ DocumentUpload.tsx
+│  ├─ GoogleMap.tsx
+│  ├─ PaymentForm.tsx
+│  ├─ ESignatureForm.tsx
+│  ├─ FloatingActionButton.tsx
+│  └─ ClientPortal.tsx
+├─ lib/
+│  └─ translations.ts
+├─ public/
+│  └─ images/office-exterior.jpg
+├─ models/
+│  └─ tax_office_rooms.glb
+├─ styles/
+│  └─ globals.css
+├─ tailwind.config.js
+├─ tsconfig.json
+├─ package.json
+└─ .env.local
+
+
+
