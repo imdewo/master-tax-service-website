@@ -36,6 +36,18 @@ export default function Home() {
     </main>
   );
 }
+// pages/index.tsx
+import AppointmentBooking from "../components/AppointmentBooking";
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to Master Tax Service</h1>
+      <AppointmentBooking />
+    </div>
+  );
+}
+
 
 
 
