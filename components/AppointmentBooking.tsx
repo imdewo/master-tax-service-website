@@ -1,6 +1,5 @@
-﻿
-
 import AppointmentBooking from "../components/AppointmentBooking";
 
-<AppointmentBooking />
-
+export default function Home() {
+  return <AppointmentBooking />;
+}
