@@ -1,5 +1,6 @@
 ﻿
 
-import { AppointmentBooking } from "../components/AppointmentBooking";
+import AppointmentBooking from "../components/AppointmentBooking";
 
 <AppointmentBooking />
+
