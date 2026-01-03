@@ -1,28 +1,65 @@
  "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+// Import Twilio only if you plan to use it in server-side functions or API routes
+// import Twilio from "twilio";
 
-export const DocumentUpload = () => {
-const [file, setFile] = useState<File | null>(null);
+const DocumentUpload: React.FC = () => {
+  const [file, setFile] = useState<File | null>(null);
+  const [uploaded, setUploaded] = useState(false);
 
-return (
-<div className="p-6 bg-white rounded-lg shadow-lg">
-<h2 className="text-2xl font-bold mb-4">Upload Tax Documents</h2>
-<input
-type="file"
-onChange={(e) => setFile(e.target.files?.[0] || null)}
-className="mb-4"
-/>
-<button
-disabled={!file}
-className="px-4 py-2 bg-green-600 text-white rounded disabled:opacity-50"
->
-Upload Securely
-</button>
-<p className="text-sm mt-2 text-gray-600">Files are encrypted in transit.</p>
-</div>
-);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+      setUploaded(false);
+    }
+  };
+
+  const handleUpload = async () => {
+    if (!file) return;
+
+    // Placeholder: Implement actual upload logic here
+    // e.g., upload to Dropbox, AWS S3, or your database
+    console.log("Uploading file:", file.name);
+
+    setUploaded(true);
+  };
+
+  return (
+    <div style={{ maxWidth: "600px", margin: "0 auto", padding: "2rem" }}>
+      <h2>Upload Document</h2>
+
+      <input
+        type="file"
+        onChange={handleFileChange}
+        style={{ margin: "1rem 0" }}
+      />
+
+      <button
+        onClick={handleUpload}
+        disabled={!file}
+        style={{
+          backgroundColor: "#2563eb",
+          color: "#fff",
+          padding: "0.75rem 1.5rem",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+        }}
+      >
+        Upload
+      </button>
+
+      {uploaded && (
+        <p style={{ color: "green", marginTop: "1rem" }}>
+          ✅ File uploaded successfully!
+        </p>
+      )}
+    </div>
+  );
 };
 
+export default DocumentUpload;
 
-npm install twilio
+
+

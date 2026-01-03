@@ -1,27 +1,10 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { SessionProvider } from "next-auth/react";
-import Script from "next/script";
+import { LanguageProvider } from "../components/language";
+import '../styles/globals.css';
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}: AppProps) {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <SessionProvider session={session}>
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-      />
-      <Script strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-        `}
-      </Script>
+    <LanguageProvider>
       <Component {...pageProps} />
-    </SessionProvider>
+    </LanguageProvider>
   );
 }

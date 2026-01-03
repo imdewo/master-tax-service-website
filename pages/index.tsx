@@ -3,15 +3,15 @@ import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { OfficeHours } from "../components/OfficeHours";
 import { ContactInfo } from "../components/ContactInfo";
 import { GoogleMap } from "../components/GoogleMap";
-import { AppointmentBooking } from "../components/AppointmentBooking";
+import AppointmentBooking from "../components/AppointmentBooking"; // ✅ updated import
 import { DocumentUpload } from "../components/DocumentUpload";
 import { PaymentForm } from "../components/PaymentForm";
 import { ESignatureForm } from "../components/ESignatureForm";
 import { FloatingActionButton } from "../components/FloatingActionButton";
-import { useLang } from "../components/LanguageProvider";
+import { useTranslation } from "../components/language"; // ✅ translation hook
 
 export default function Home() {
-  const { t, dir } = useLang();
+  const { t, dir } = useTranslation(); // ✅ use translation hook
 
   return (
     <main dir={dir} className="min-h-screen bg-gray-100 p-6 space-y-10">
@@ -34,17 +34,6 @@ export default function Home() {
 
       <FloatingActionButton signUrl="/api/esign" />
     </main>
-  );
-}
-// pages/index.tsx
-import AppointmentBooking from "../components/AppointmentBooking";
-
-export default function Home() {
-  return (
-    <div>
-      <h1>Welcome to Master Tax Service</h1>
-      <AppointmentBooking />
-    </div>
   );
 }
 

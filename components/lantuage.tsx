@@ -1,11 +1,18 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
-import { translations } from "../lib/translations";
+import { createContext, useContext, useState, ReactNode } from "react";
+import { translations } from "../lib/translations"; // make sure this file exists
 
-const LangContext = createContext<any>(null);
+type LangContextType = {
+  lang: string;
+  setLang: (lang: string) => void;
+  t: (key: string) => string;
+  dir: "ltr" | "rtl";
+};
 
-export const LanguageProvider = ({ children }: any) => {
+const LangContext = createContext<LangContextType | null>(null);
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState("en");
 
   const t = (key: string) => translations[lang][key] || key;
@@ -18,6 +25,11 @@ export const LanguageProvider = ({ children }: any) => {
   );
 };
 
-export const useLang = () => useContext(LangContext);
+export const useLang = () => {
+  const context = useContext(LangContext);
+  if (!context) throw new Error("useLang must be used within LanguageProvider");
+  return context;
+};
 
-
+// Add this so AppointmentBooking can import it
+export const useTranslation = useLang;
